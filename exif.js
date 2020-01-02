@@ -41,15 +41,15 @@ app.get('/', function (req, res) {
 							var gps= exifData["gps"];
 
 							res.write(' <div class="row">	');
-   						res.write('<div class="col-6"> <img style="width:650px; height:auto"src="data:image/jpeg;base64,');
+   						res.write('<div class="col-6"> <img src="data:image/jpeg;base64,');
 						  res.write(Buffer.from(data).toString('base64'));	
-							res.write('" style="width:800px; height:auto"');			  
+							res.write('" style="width:100%; height:auto"');			  
 							res.write('/></div><div class="col-6"> Make: '+image["Make"]+'</p>');
 							res.write("<p> Model: "+image["Model"]+"</p>");
 							res.write("<p> Created on: "+image["ModifyDate"]+"</p>");
 							res.write('<p> Location:<form action="/map" method="post"> <input type="hidden" name="latitude_degrees" value="'+ gps["GPSLatitude"]['0']+'"><input type="hidden" name="latitude_minutes" value="'+ gps["GPSLatitude"]['1']+'"><input type="hidden" name="latitude_seconds" value="'+ gps["GPSLatitude"]['2']+'"><input type="hidden" name="latitudeRef" value="'+ gps["GPSLatitudeRef"]+'"><input type="hidden" name="longitude_degrees" value="'+ gps["GPSLongitude"]['0']+'"><input type="hidden" name="longitude_minutes" value="'+ gps["GPSLongitude"]['1']+'"><input type="hidden" name="longitude_seconds" value="'+ gps["GPSLongitude"]['2']+'"><input type="hidden" name="longituderef" value="'+ gps["GPSLongitudeRef"]+'">');
 							res.write(' <input type="submit" value="Map"></form></p>');
-							res.write(' <a href="/" class="btn btn-info">Home</a></div></div>');
+							res.write(' <a href="/" class="btn btn-info">Home</a></div></div></div>');
 							
 							res.end();
 							});
